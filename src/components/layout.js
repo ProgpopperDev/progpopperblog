@@ -11,6 +11,7 @@ import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+require("typeface-poppins")
 
 const Layout = ({ children, location }) => (
   <StaticQuery
@@ -21,7 +22,7 @@ const Layout = ({ children, location }) => (
             title
           }
         }
-        background: file(relativePath: { eq: "wall1.jpg" }) {
+        background: file(relativePath: { eq: "wallx.jpg" }) {
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.

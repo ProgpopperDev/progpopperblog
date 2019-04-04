@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-
+import Img from "gatsby-image"
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
@@ -24,6 +24,10 @@ export default function Template({
               __html: contentfulBlog.body.childMarkdownRemark.html,
             }}
           />
+          <Img
+            sizes={contentfulBlog.supportImage.sizes}
+            style={{ maxWidth: "550px" }}
+          />
         </article>
       </div>
     </div>
@@ -39,6 +43,19 @@ export const pageQuery = graphql`
         childMarkdownRemark {
           html
           excerpt
+        }
+      }
+      supportImage {
+        id
+        sizes(maxWidth: 250) {
+          base64
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
         }
       }
       slug
