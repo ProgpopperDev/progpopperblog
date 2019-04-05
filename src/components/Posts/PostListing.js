@@ -3,8 +3,29 @@ import Link from "gatsby-link"
 import styled from "styled-components"
 import Img from "gatsby-image"
 
-const OddColumn = styled.div`
+const Column = styled.div`
   margin-bottom: 1.5rem;
+`
+
+const PostDivider = styled.hr`
+  width: 100%;
+  position: relative;
+  padding: 0;
+  border: 0;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  background: none;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  &:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+
+    width: 100%;
+    border-top: solid 1px rgba(255, 255, 255, 0.18);
+    height: 1px;
+  }
 `
 
 const OddColumnInner = styled.div`
@@ -128,23 +149,26 @@ const ImageWrapDiv = styled.a`
 `
 
 const PostListing = ({ post }) => (
-  <OddColumn>
-    <OddColumnInner>
-      <OddColumnImageText>
-        <p id="text10">{post.title}</p>
-        <p id="text11">{post.body.childMarkdownRemark.excerpt}</p>
-        <OddColumnInnerUl>
-          <li>
-            <Link to={post.slug}>More</Link>
-          </li>
-        </OddColumnInnerUl>
-      </OddColumnImageText>
+  <div>
+    <Column>
+      <OddColumnInner>
+        <OddColumnImageText>
+          <p id="text10">{post.title}</p>
+          <p id="text11">{post.body.childMarkdownRemark.excerpt}</p>
+          <OddColumnInnerUl>
+            <li>
+              <Link to={post.slug}>More</Link>
+            </li>
+          </OddColumnInnerUl>
+        </OddColumnImageText>
 
-      <OddColumnInnerImage>
-        <Img sizes={post.titleImage.sizes} />
-      </OddColumnInnerImage>
-    </OddColumnInner>
-  </OddColumn>
+        <OddColumnInnerImage>
+          <Img sizes={post.titleImage ? post.titleImage.sizes : null} />
+        </OddColumnInnerImage>
+      </OddColumnInner>
+    </Column>
+    <PostDivider />
+  </div>
 )
 
 export default PostListing

@@ -10,6 +10,14 @@ import { faAddressCard } from "@fortawesome/free-solid-svg-icons"
 
 const IntroWrapper = styled.section``
 
+const IconStyle = {
+  color: "#fff",
+  backgroundColor: "#d52349",
+  padding: "8px 8px",
+  fontSize: "4.5rem",
+  margin: "0 0 4.5rem 0",
+}
+
 const IndexPage = ({ data }) => {
   return (
     <Layout>
@@ -17,7 +25,11 @@ const IndexPage = ({ data }) => {
         <div className="row">
           <div className="col-4 col-12-medium product-card">
             <section className="product-card-section">
-              <FontAwesomeIcon icon={faAddressCard} className="product-icon" />
+              <FontAwesomeIcon
+                icon={faAddressCard}
+                className="product-icon"
+                style={IconStyle}
+              />
               <header className="product-card-header">
                 <h2>Ipsum consequat</h2>
               </header>
@@ -29,7 +41,12 @@ const IndexPage = ({ data }) => {
           </div>
           <div className="col-4 col-12-medium  product-card">
             <section className="product-card-section">
-              <i class="icon featured alt fa-flash" />
+              <FontAwesomeIcon
+                icon={faAddressCard}
+                className="product-icon"
+                style={IconStyle}
+              />
+
               <header className="product-card-header">
                 <h2>Magna etiam dolor</h2>
               </header>
@@ -41,7 +58,11 @@ const IndexPage = ({ data }) => {
           </div>
           <div class="col-4 col-12-medium  product-card">
             <section className="product-card-section">
-              <i class="icon featured alt2 fa-star" />
+              <FontAwesomeIcon
+                icon={faAddressCard}
+                className="product-icon"
+                style={IconStyle}
+              />
               <header className="product-card-header">
                 <h2>Tempus adipiscing</h2>
               </header>

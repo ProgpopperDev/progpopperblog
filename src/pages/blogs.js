@@ -5,6 +5,15 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import PostListing from "../components/Posts/PostListing"
 import backx from "../images/backx.jpg"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faFacebookF,
+  faTwitter,
+  faGooglePlus,
+  faMedium,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons"
+import { faHome } from "@fortawesome/free-solid-svg-icons"
 
 const MainWrapper = styled.div`
   min-width: 320px;
@@ -123,6 +132,67 @@ const HomeSection = styled.section`
     max-height 0.25s ease-in-out;
 `
 
+const Footer = styled.footer`
+  margin-top: 1.5rem;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  display: block;
+`
+
+const FooterContainer = styled.div`
+  margin-top: 1.5rem;
+`
+
+const FooterInner = styled.div`
+  vertical-align: top;
+  position: relative;
+  max-width: 100%;
+  border-radius: inherit;
+
+  text-align: center;
+  padding: 0rem 0rem;
+  width: 38rem;
+  background-color: transparent;
+  display: inline-block;
+
+  ul {
+    margin-bottom: 1rem;
+    cursor: default;
+    padding: 0;
+    letter-spacing: 0;
+    font-size: 1.375em;
+    width: calc(100% + 1.25rem);
+    margin-left: -0.625rem;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      z-index: 1;
+      margin: 0.625rem;
+
+      a {
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -moz-align-items: center;
+        -webkit-align-items: center;
+        -ms-align-items: center;
+        align-items: center;
+        -moz-justify-content: center;
+        -webkit-justify-content: center;
+        -ms-justify-content: center;
+        justify-content: center;
+        border-radius: 100%;
+        width: 2em;
+        height: 2em;
+      }
+    }
+  }
+`
+
 const Blogs = ({ data }) => {
   return (
     <MainWrapper>
@@ -140,7 +210,7 @@ const Blogs = ({ data }) => {
                   </div>
                   <p id="text03">Blogs</p>
                   <hr id="divider04" />
-                  <p id="text09">Ipsum gravida sed feugiat amet tempus</p>
+                  <p id="text09">These are for you .. </p>
                 </div>
               </div>
               <hr id="divider05" />
@@ -149,6 +219,63 @@ const Blogs = ({ data }) => {
                 <PostListing post={node} key={node.id} index={index} />
               ))}
             </HomeSection>
+            <Footer>
+              <FooterContainer>
+                <FooterInner>
+                  <ul>
+                    <li>
+                      <Link to="/">
+                        {" "}
+                        <FontAwesomeIcon
+                          icon={faHome}
+                          style={{ color: "#fff" }}
+                        />{" "}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/">
+                        <FontAwesomeIcon
+                          icon={faFacebookF}
+                          style={{ color: "#fff" }}
+                        />{" "}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/">
+                        <FontAwesomeIcon
+                          icon={faInstagram}
+                          style={{ color: "#fff" }}
+                        />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/">
+                        <FontAwesomeIcon
+                          icon={faTwitter}
+                          style={{ color: "#fff" }}
+                        />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/">
+                        <FontAwesomeIcon
+                          icon={faGooglePlus}
+                          style={{ color: "#fff" }}
+                        />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/">
+                        <FontAwesomeIcon
+                          icon={faMedium}
+                          style={{ color: "#fff" }}
+                        />
+                      </Link>
+                    </li>
+                  </ul>
+                </FooterInner>
+              </FooterContainer>
+            </Footer>
           </InnerDiv>
         </Maindiv>
       </DivWrapper>
