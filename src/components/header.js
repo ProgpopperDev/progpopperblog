@@ -10,7 +10,7 @@ const HeaderWrapper = styled.div`
   margin-bottom: 1.45rem;
   overflow: hidden;
   position: relative;
-  height: 99vh;
+  height: 100vh;
 `
 
 const HeaderContainer = styled.div`
@@ -90,7 +90,7 @@ class Header extends Component {
                 <Link to="/blogs">Blogs</Link>
               </li>
               <li>
-                <Link to="/abo">Articles</Link>
+                <Link to="/articles">Articles</Link>
               </li>
               <li>
                 <Link to="/about">About</Link>
