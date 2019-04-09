@@ -10,12 +10,7 @@ const HeaderWrapper = styled.div`
   margin-bottom: 1.45rem;
   overflow: hidden;
   position: relative;
-  height: 70vh;
-  h1 {
-    img {
-      height: 80px;
-    }
-  }
+  height: 100vh;
 `
 
 const HeaderContainer = styled.div`
@@ -23,21 +18,42 @@ const HeaderContainer = styled.div`
   max-width: 960px;
   padding: 1.45rem 1.0875rem;
   position: relative;
+  text-align: center;
   z-index: 2;
   display: flex;
   justify-content: space-between;
+  a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  h1 {
+    display: block;
+    font-family: Poppins;
+  }
 `
-
+const NavContainer = styled.div`
+  text-align: center;
+  z-index: 3;
+  position: relative;
+`
 const MainNav = styled.nav`
   ul {
     list-style: none;
-    display: flex;
+    display: block;
+    list-style: disc;
+    padding-left: 1em;
+    padding-left: 1em;
     li {
-      margin-left: 10px;
+      margin: 0 0.35em 0 0.35em;
+      padding-left: 0.5em;
+      display: inline-block;
 
       a {
         text-decoration: none;
         color: #fff;
+        font-family: Poppins;
+        padding: 0.6em 1.2em 0.6em 1.2em;
         &:hover {
           border-bottom: 3px solid #524763;
         }
@@ -47,42 +63,42 @@ const MainNav = styled.nav`
 `
 
 class Header extends Component {
-  componentDidUpdate = (prevProps, prevState) => {
-    console.log("path is ", this.props.location.pathname)
-  }
-
   render() {
     const { siteTitle, background } = this.props
 
     return (
       <HeaderWrapper>
         <HeaderContainer>
-          <h1 style={{ margin: 0 }}>
-            <Link
-              to="/"
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              <div style={{ display: "flex" }}>
-                {" "}
-                <img src={logo} alt="ProgPopperLogo" />
-                {siteTitle}
-              </div>
-            </Link>
-          </h1>
+          <Link
+            to="/"
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            {" "}
+            <h1>{siteTitle}</h1>
+          </Link>
+        </HeaderContainer>
+        <NavContainer>
           <MainNav>
             <ul>
               <li>
                 <Link to="/">Home</Link>
               </li>
               <li>
+                <Link to="/blogs">Blogs</Link>
+              </li>
+              <li>
+                <Link to="/articles">Articles</Link>
+              </li>
+              <li>
                 <Link to="/about">About</Link>
               </li>
             </ul>
           </MainNav>
-        </HeaderContainer>
+        </NavContainer>
+
         <Img
           style={{
             position: "absolute",
