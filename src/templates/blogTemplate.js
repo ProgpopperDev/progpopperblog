@@ -73,6 +73,9 @@ const DivWrapper = styled.div`
   z-index: 2;
   overflow: hidden;
   padding: 3.5rem 3.5rem 3.5rem 3.5rem;
+  @media (max-width: 736px) {
+    padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  }
 `
 
 const Maindiv = styled.div`

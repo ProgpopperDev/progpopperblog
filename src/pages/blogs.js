@@ -75,6 +75,9 @@ const DivWrapper = styled.div`
   z-index: 2;
   overflow: hidden;
   padding: 3.5rem 3.5rem 3.5rem 3.5rem;
+  @media (max-width: 480px) {
+    padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  }
 `
 
 const Maindiv = styled.div`
@@ -117,8 +120,11 @@ const InnerDiv = styled.div`
   border-radius: inherit;
   padding: 3.75rem 3rem;
   max-width: 100%;
-  width: 38rem;
+  width: 90%;
   font-family: Poppins;
+  @media (max-width: 736px) {
+    padding: 0.75rem 0.75rem;
+  }
 `
 
 const HomeSection = styled.section`
