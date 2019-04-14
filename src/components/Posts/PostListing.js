@@ -31,7 +31,7 @@ const PostDivider = styled.hr`
 const OddColumnInner = styled.div`
   text-align: center;
   padding: 0rem 0rem;
-  width: 38rem;
+  /* width: 38rem; */
   background-color: transparent;
   display: flex;
   align-items: space-between;
@@ -39,6 +39,10 @@ const OddColumnInner = styled.div`
   position: relative;
   max-width: 100%;
   border-radius: inherit;
+  @media (max-width: 736px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `
 
 const OddColumnInnerImage = styled.div`
@@ -55,6 +59,12 @@ const OddColumnInnerImage = styled.div`
 
   width: calc(50% + 1.25rem);
   text-align: right;
+
+  @media (max-width: 736px) {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 10px;
+  }
 `
 
 const OddColumnImageText = styled.div`
@@ -66,6 +76,10 @@ const OddColumnImageText = styled.div`
   -webkit-flex-shrink: 0;
   -ms-flex-shrink: 0;
   flex-shrink: 0;
+  @media (max-width: 736px) {
+    width: 100%;
+    padding: 0;
+  }
 
   p {
     margin-top: rem !important;
