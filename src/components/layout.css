@@ -732,3 +732,21 @@ pre tt:after {
   display: inline-block;
   vertical-align: middle;
 }
+
+.blog-post-image-container {
+  width: 26rem;
+  height: 16rem;
+}
+
+@media only screen and (max-width: 1230px) {
+  .blog-post-image-container {
+    width: 18rem;
+    height: 14rem;
+  }
+}
+
+.blog-template-image-container {
+  width: 100%;
+  padding: 0 10rem 0rem 10rem;
+  height: 30rem;
+}

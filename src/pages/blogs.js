@@ -207,7 +207,7 @@ const Blogs = ({ data }) => {
           <InnerDiv>
             <HomeSection>
               <div id="columns03" className="container">
-                <div class="inner">
+                <div className="inner">
                   <div id="image03" className="image3">
                     <img
                       src="assets/images/image03.png?v48708555111551"

@@ -177,7 +177,10 @@ const PostListing = ({ post }) => (
         </OddColumnImageText>
 
         <OddColumnInnerImage>
-          <Img sizes={post.titleImage ? post.titleImage.sizes : null} />
+          <Img
+            sizes={post.titleImage ? post.titleImage.sizes : null}
+            className="blog-post-image-container"
+          />
         </OddColumnInnerImage>
       </OddColumnInner>
     </Column>

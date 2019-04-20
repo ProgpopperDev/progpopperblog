@@ -22,7 +22,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IntroWrapper className="container">
-        <div className="row">
+        {/* <div className="row">
           <div className="col-4 col-12-medium product-card">
             <section className="product-card-section">
               <FontAwesomeIcon
@@ -73,6 +73,7 @@ const IndexPage = ({ data }) => {
             </section>
           </div>
         </div>
+  */}
       </IntroWrapper>
     </Layout>
   )

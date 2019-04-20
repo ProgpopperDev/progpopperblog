@@ -235,7 +235,6 @@ const InnerImageWrapper = styled.div`
 
   border-radius: 0.375rem;
   position: relative;
-  max-width: 100%;
 `
 
 const Content = styled.div`
@@ -330,7 +329,12 @@ export default function Template({
               <TitleText> {title} </TitleText>
               <LineDivider />
               <InnerImageWrapper>
-                {titleImage && <Img sizes={titleImage.sizes} />}
+                {titleImage && (
+                  <Img
+                    sizes={titleImage.sizes}
+                    className="blog-template-image-container"
+                  />
+                )}
               </InnerImageWrapper>
               <Content
                 dangerouslySetInnerHTML={{
