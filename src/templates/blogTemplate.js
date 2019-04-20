@@ -268,7 +268,7 @@ const FooterInner = styled.div`
 
   text-align: center;
   padding: 0rem 0rem;
-  width: 38rem;
+  width: 100%;
   background-color: transparent;
   display: inline-block;
 
