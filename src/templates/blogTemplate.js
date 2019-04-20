@@ -118,7 +118,7 @@ const InnerDiv = styled.div`
   border-radius: inherit;
   padding: 3.75rem 3rem;
   max-width: 100%;
-  width: 38rem;
+  width: 70rem;
   font-family: Poppins;
 `
 
