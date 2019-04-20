@@ -197,6 +197,8 @@ const AboutPara = styled.p`
   color: #fff;
   font-size: 1em;
   font-weight: 200;
+  line-height: 1.3rem;
+  letter-spacing: 0.1rem;
 `
 
 const About = () => {

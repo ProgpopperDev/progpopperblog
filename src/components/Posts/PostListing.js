@@ -86,7 +86,7 @@ const OddColumnImageText = styled.div`
     margin-bottom: rem !important;
     color: #ffffff;
     font-family: "Source Sans Pro", sans-serif;
-    letter-spacing: 0.025rem;
+    letter-spacing: 0.1rem;
     width: calc(100% + 0.025rem);
     font-size: 1em;
     line-height: 1.75;

@@ -186,12 +186,12 @@ const HomeSectionUl = styled.ul`
 `
 
 const TitleText = styled.p`
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: #ffffff;
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.275rem;
   width: calc(100% + 0.375rem);
-  font-size: 1.35em;
+  font-size: 2em;
   line-height: 1.375;
   font-weight: 500;
 
@@ -241,7 +241,7 @@ const Content = styled.div`
   margin-top: 1.5rem;
   color: #ffffff;
   font-family: "Source Sans Pro", sans-serif;
-  letter-spacing: 0.025rem;
+  letter-spacing: 0.065rem;
   width: calc(100% + 0.025rem);
   font-size: 1em;
   line-height: 1.75;

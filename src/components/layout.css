@@ -405,7 +405,7 @@ pre {
   margin-bottom: 1.45rem;
   font-size: 0.85rem;
   line-height: 1.42;
-  background: hsla(0, 0%, 0%, 0.04);
+  background: hsla(0, 0%, 0%, 0.35);
   border-radius: 3px;
   overflow: auto;
   word-wrap: normal;
@@ -688,6 +688,12 @@ pre tt:after {
   font-weight: 400;
 }
 
+#text10 {
+  font-size: 1.65rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
 #divider04 {
   width: 100%;
   position: relative;
@@ -717,6 +723,7 @@ pre tt:after {
   font-size: 1em;
   line-height: 1.75;
   font-weight: 200;
+  letter-spacing: 0.065rem;
 }
 
 #divider05 {
@@ -749,4 +756,20 @@ pre tt:after {
   width: 100%;
   padding: 0 10rem 0rem 10rem;
   height: 30rem;
+}
+
+/* mobile media queries */
+@media only screen and (max-width: 576px) {
+  #text03 {
+    letter-spacing: 0.2rem;
+    font-size: 1.95em;
+  }
+
+  .blog-template-image-container {
+    height: auto;
+    padding: 0;
+  }
+  .blog-post-image-container {
+    height: auto;
+  }
 }
