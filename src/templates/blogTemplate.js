@@ -314,7 +314,7 @@ export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { contentfulBlog } = data // data.markdownRemark holds our post data
-  const { title, titleImage, supportImage } = contentfulBlog
+  const { title, titleImage } = contentfulBlog
   return (
     <MainWrapper>
       <DivWrapper>
@@ -339,7 +339,7 @@ export default function Template({
               />
               <LineDivider />
               <InnerImageWrapper>
-                {supportImage && <Img sizes={supportImage.sizes} />}
+                {/* {supportImage && <Img sizes={supportImage.sizes} />} */}
               </InnerImageWrapper>
             </HomeSection>
 
@@ -431,7 +431,15 @@ export const pageQuery = graphql`
           sizes
         }
       }
-      supportImage {
+
+      slug
+      id
+    }
+  }
+`
+
+/* 
+ supportImage {
         id
         sizes {
           base64
@@ -444,8 +452,4 @@ export const pageQuery = graphql`
           sizes
         }
       }
-      slug
-      id
-    }
-  }
-`
+*/
