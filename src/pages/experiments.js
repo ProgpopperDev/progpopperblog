@@ -75,9 +75,6 @@ const DivWrapper = styled.div`
   z-index: 2;
   overflow: hidden;
   padding: 3.5rem 3.5rem 3.5rem 3.5rem;
-  @media (max-width: 480px) {
-    padding: 0.75rem 0.75rem 0.75rem 0.75rem;
-  }
 `
 
 const Maindiv = styled.div`
@@ -120,11 +117,8 @@ const InnerDiv = styled.div`
   border-radius: inherit;
   padding: 3.75rem 3rem;
   max-width: 100%;
-  width: 90%;
+  width: 38rem;
   font-family: Poppins;
-  @media (max-width: 736px) {
-    padding: 0.75rem 0.75rem;
-  }
 `
 
 const HomeSection = styled.section`
@@ -157,7 +151,7 @@ const FooterInner = styled.div`
 
   text-align: center;
   padding: 0rem 0rem;
-  width: 100%;
+  width: 38rem;
   background-color: transparent;
   display: inline-block;
 
@@ -199,7 +193,13 @@ const FooterInner = styled.div`
   }
 `
 
-const Blogs = ({ data }) => {
+const AboutPara = styled.p`
+  color: #fff;
+  font-size: 1em;
+  font-weight: 200;
+`
+
+const Experiments = () => {
   return (
     <MainWrapper>
       <DivWrapper>
@@ -207,23 +207,25 @@ const Blogs = ({ data }) => {
           <InnerDiv>
             <HomeSection>
               <div id="columns03" className="container">
-                <div className="inner">
+                <div class="inner">
                   <div id="image03" className="image3">
-                    <img
+                    {/*  <img
                       src="assets/images/image03.png?v48708555111551"
                       alt=""
                     />
+                    */}
                   </div>
-                  <p id="text03">Blogs</p>
+                  <p id="text03">Experiments</p>
                   <hr id="divider04" />
-                  <p id="text09">These are for you .. </p>
+                  <p id="text09">These are some hands ons.. </p>
                 </div>
               </div>
               <hr id="divider05" />
 
-              {data.allContentfulBlog.edges.map(({ node, index }) => (
-                <PostListing post={node} key={node.id} index={index} />
-              ))}
+              <AboutPara>
+                This site is designed to provide tutorials and other helper
+                documents to enrich your knowledge in web development
+              </AboutPara>
             </HomeSection>
             <Footer>
               <FooterContainer>
@@ -288,38 +290,4 @@ const Blogs = ({ data }) => {
     </MainWrapper>
   )
 }
-export default Blogs
-
-export const query = graphql`
-  query {
-    allContentfulBlog {
-      edges {
-        node {
-          title
-          publishedDate(formatString: "DD - MMMM - YYYY")
-          body {
-            childMarkdownRemark {
-              excerpt
-            }
-          }
-
-          slug
-          id
-          titleImage {
-            id
-            sizes {
-              base64
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-        }
-      }
-    }
-  }
-`
+export default Experiments

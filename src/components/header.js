@@ -44,6 +44,11 @@ const MainNav = styled.nav`
     list-style: disc;
     padding-left: 1em;
     padding-left: 1em;
+    @media (max-width: 736px) {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+    }
     li {
       margin: 0 0.35em 0 0.35em;
       padding-left: 0.5em;

@@ -118,7 +118,7 @@ const InnerDiv = styled.div`
   border-radius: inherit;
   padding: 3.75rem 3rem;
   max-width: 100%;
-  width: 38rem;
+  width: 70rem;
   font-family: Poppins;
 `
 
@@ -235,7 +235,6 @@ const InnerImageWrapper = styled.div`
 
   border-radius: 0.375rem;
   position: relative;
-  max-width: 100%;
 `
 
 const Content = styled.div`
@@ -268,7 +267,7 @@ const FooterInner = styled.div`
 
   text-align: center;
   padding: 0rem 0rem;
-  width: 38rem;
+  width: 100%;
   background-color: transparent;
   display: inline-block;
 
@@ -314,7 +313,7 @@ export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { contentfulBlog } = data // data.markdownRemark holds our post data
-  const { title, titleImage, supportImage } = contentfulBlog
+  const { title, titleImage } = contentfulBlog
   return (
     <MainWrapper>
       <DivWrapper>
@@ -330,7 +329,12 @@ export default function Template({
               <TitleText> {title} </TitleText>
               <LineDivider />
               <InnerImageWrapper>
-                {titleImage && <Img sizes={titleImage.sizes} />}
+                {titleImage && (
+                  <Img
+                    sizes={titleImage.sizes}
+                    className="blog-template-image-container"
+                  />
+                )}
               </InnerImageWrapper>
               <Content
                 dangerouslySetInnerHTML={{
@@ -339,7 +343,7 @@ export default function Template({
               />
               <LineDivider />
               <InnerImageWrapper>
-                {supportImage && <Img sizes={supportImage.sizes} />}
+                {/* {supportImage && <Img sizes={supportImage.sizes} />} */}
               </InnerImageWrapper>
             </HomeSection>
 
@@ -431,7 +435,15 @@ export const pageQuery = graphql`
           sizes
         }
       }
-      supportImage {
+
+      slug
+      id
+    }
+  }
+`
+
+/* 
+ supportImage {
         id
         sizes {
           base64
@@ -444,8 +456,4 @@ export const pageQuery = graphql`
           sizes
         }
       }
-      slug
-      id
-    }
-  }
-`
+*/
