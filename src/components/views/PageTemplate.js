@@ -1,21 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import styled from "styled-components"
-import Layout from "../components/layout"
-import Image from "../components/image"
-import PostListing from "../components/Posts/PostListing"
-import backx from "../images/backx.jpg"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faFacebookF,
-  faTwitter,
-  faGooglePlus,
-  faMedium,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons"
-import { faHome } from "@fortawesome/free-solid-svg-icons"
+import backx from "../../images/backx.jpg"
 
-const MainWrapper = styled.div`
+export const MainWrapper = styled.div`
   min-width: 320px;
   min-height: 100vh;
   line-height: 1;
@@ -52,7 +40,7 @@ const MainWrapper = styled.div`
   }
 `
 
-const DivWrapper = styled.div`
+export const DivWrapper = styled.div`
   -webkit-overflow-scrolling: touch;
   display: -moz-flex;
   display: -webkit-flex;
@@ -75,9 +63,12 @@ const DivWrapper = styled.div`
   z-index: 2;
   overflow: hidden;
   padding: 3.5rem 3.5rem 3.5rem 3.5rem;
+  @media (max-width: 480px) {
+    padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  }
 `
 
-const Maindiv = styled.div`
+export const Maindiv = styled.div`
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
@@ -111,17 +102,20 @@ const Maindiv = styled.div`
   transition: opacity 1.25s ease 0s, transform 1.25s ease 0s;
 `
 
-const InnerDiv = styled.div`
+export const InnerDiv = styled.div`
   position: relative;
   z-index: 1;
   border-radius: inherit;
   padding: 3.75rem 3rem;
   max-width: 100%;
-  width: 38rem;
+  width: 90%;
   font-family: Poppins;
+  @media (max-width: 736px) {
+    padding: 0.75rem 0.75rem;
+  }
 `
 
-const HomeSection = styled.section`
+export const HomeSection = styled.section`
   -moz-transition: opacity 0.5s ease-in-out 0.25s, min-height 0.25s ease-in-out,
     max-height 0.25s ease-in-out;
   -webkit-transition: opacity 0.5s ease-in-out 0.25s,
@@ -132,18 +126,18 @@ const HomeSection = styled.section`
     max-height 0.25s ease-in-out;
 `
 
-const Footer = styled.footer`
+export const Footer = styled.footer`
   margin-top: 1.5rem;
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
   display: block;
 `
 
-const FooterContainer = styled.div`
+export const FooterContainer = styled.div`
   margin-top: 1.5rem;
 `
 
-const FooterInner = styled.div`
+export const FooterInner = styled.div`
   vertical-align: top;
   position: relative;
   max-width: 100%;
@@ -151,7 +145,7 @@ const FooterInner = styled.div`
 
   text-align: center;
   padding: 0rem 0rem;
-  width: 38rem;
+  width: 100%;
   background-color: transparent;
   display: inline-block;
 
@@ -192,104 +186,3 @@ const FooterInner = styled.div`
     }
   }
 `
-
-const AboutPara = styled.p`
-  color: #fff;
-  font-size: 1em;
-  font-weight: 200;
-  line-height: 1.3rem;
-  letter-spacing: 0.1rem;
-`
-
-const About = () => {
-  return (
-    <MainWrapper>
-      <DivWrapper>
-        <Maindiv>
-          <InnerDiv>
-            <HomeSection>
-              <div id="columns03" className="container">
-                <div class="inner">
-                  <div id="image03" className="image3">
-                    {/*  <img
-                      src="assets/images/image03.png?v48708555111551"
-                      alt=""
-                    />
-                    */}
-                  </div>
-                  <p id="text03">About</p>
-                  <hr id="divider04" />
-                  <p id="text09">These are for you .. </p>
-                </div>
-              </div>
-              <hr id="divider05" />
-
-              <AboutPara>
-                This site is designed to provide tutorials and other helper
-                documents to enrich your knowledge in web development
-              </AboutPara>
-            </HomeSection>
-            <Footer>
-              <FooterContainer>
-                <FooterInner>
-                  <ul>
-                    <li>
-                      <Link to="/">
-                        {" "}
-                        <FontAwesomeIcon
-                          icon={faHome}
-                          style={{ color: "#fff" }}
-                        />{" "}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <FontAwesomeIcon
-                          icon={faFacebookF}
-                          style={{ color: "#fff" }}
-                        />{" "}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <FontAwesomeIcon
-                          icon={faInstagram}
-                          style={{ color: "#fff" }}
-                        />
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <FontAwesomeIcon
-                          icon={faTwitter}
-                          style={{ color: "#fff" }}
-                        />
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <FontAwesomeIcon
-                          icon={faGooglePlus}
-                          style={{ color: "#fff" }}
-                        />
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <FontAwesomeIcon
-                          icon={faMedium}
-                          style={{ color: "#fff" }}
-                        />
-                      </Link>
-                    </li>
-                  </ul>
-                </FooterInner>
-              </FooterContainer>
-            </Footer>
-          </InnerDiv>
-        </Maindiv>
-      </DivWrapper>
-    </MainWrapper>
-  )
-}
-export default About

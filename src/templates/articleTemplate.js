@@ -1,9 +1,7 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import Img from "gatsby-image"
 import styled from "styled-components"
-import Layout from "../components/layout"
-import Image from "../components/image"
-import PostListing from "../components/Posts/PostListing"
 import backx from "../images/backx.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -75,6 +73,9 @@ const DivWrapper = styled.div`
   z-index: 2;
   overflow: hidden;
   padding: 3.5rem 3.5rem 3.5rem 3.5rem;
+  @media (max-width: 736px) {
+    padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  }
 `
 
 const Maindiv = styled.div`
@@ -117,7 +118,7 @@ const InnerDiv = styled.div`
   border-radius: inherit;
   padding: 3.75rem 3rem;
   max-width: 100%;
-  width: 38rem;
+  width: 70rem;
   font-family: Poppins;
 `
 
@@ -130,6 +131,129 @@ const HomeSection = styled.section`
     max-height 0.25s ease-in-out;
   transition: opacity 0.5s ease-in-out 0.25s, min-height 0.25s ease-in-out,
     max-height 0.25s ease-in-out;
+`
+
+const HomeSectionUl = styled.ul`
+  margin-bottom: 1.5rem;
+  width: calc(100% + 0.75rem);
+  margin-left: -0.375rem;
+  cursor: default;
+  padding: 0;
+  letter-spacing: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: calc(100% - 0.75rem);
+    margin: 0.375rem;
+
+    a {
+      text-decoration: none;
+      text-align: center;
+      white-space: nowrap;
+      max-width: 100%;
+      -moz-align-items: center;
+      -webkit-align-items: center;
+      -ms-align-items: center;
+      align-items: center;
+      -moz-justify-content: center;
+      -webkit-justify-content: center;
+      -ms-justify-content: center;
+      justify-content: center;
+      vertical-align: middle;
+
+      display: -moz-flex;
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      width: auto;
+      height: 2rem;
+      line-height: 2rem;
+      vertical-align: middle;
+      padding: 0 1rem;
+      text-transform: uppercase;
+      font-size: 0.65em;
+      font-family: "Poppins", sans-serif;
+      letter-spacing: 0.3rem;
+      padding-left: calc(0.3rem + 1rem);
+      font-weight: 300;
+      border-radius: 2rem;
+      color: #ffffff;
+      border: solid 1px #ffffff;
+    }
+  }
+`
+
+const TitleText = styled.p`
+  text-transform: capitalize;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.275rem;
+  width: calc(100% + 0.375rem);
+  font-size: 2em;
+  line-height: 1.375;
+  font-weight: 500;
+
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  -moz-transition: opacity 1s ease-in-out 0.25s;
+  -webkit-transition: opacity 1s ease-in-out 0.25s;
+  -ms-transition: opacity 1s ease-in-out 0.25s;
+  transition: opacity 1s ease-in-out 0.25s;
+`
+
+const LineDivider = styled.hr`
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  position: relative;
+  padding: 0;
+  border: 0;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  background: none;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 10%;
+    border-top: solid 2px #ffffff;
+    height: 2px;
+  }
+`
+
+const InnerImageWrapper = styled.div`
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  display: block;
+
+  border-radius: 0.375rem;
+  position: relative;
+`
+
+const Content = styled.div`
+  margin-top: 1.5rem;
+  color: #ffffff;
+  font-family: "Source Sans Pro", sans-serif;
+  letter-spacing: 0.065rem;
+  width: calc(100% + 0.025rem);
+  font-size: 1em;
+  line-height: 1.75;
+  font-weight: 200;
+  p {
+    img {
+      height: 24rem;
+      width: 24rem;
+      display: block;
+      margin-top: 5px;
+    }
+  }
 `
 
 const Footer = styled.footer`
@@ -151,7 +275,7 @@ const FooterInner = styled.div`
 
   text-align: center;
   padding: 0rem 0rem;
-  width: 38rem;
+  width: 100%;
   background-color: transparent;
   display: inline-block;
 
@@ -193,43 +317,39 @@ const FooterInner = styled.div`
   }
 `
 
-const AboutPara = styled.p`
-  color: #fff;
-  font-size: 1em;
-  font-weight: 200;
-  line-height: 1.3rem;
-  letter-spacing: 0.1rem;
-`
-
-const About = () => {
+export default function Template({
+  data, // this prop will be injected by the GraphQL query below.
+}) {
+  const { contentfulArticle } = data // data.markdownRemark holds our post data
+  const { title, titleImage } = contentfulArticle
   return (
     <MainWrapper>
       <DivWrapper>
         <Maindiv>
           <InnerDiv>
             <HomeSection>
-              <div id="columns03" className="container">
-                <div class="inner">
-                  <div id="image03" className="image3">
-                    {/*  <img
-                      src="assets/images/image03.png?v48708555111551"
-                      alt=""
-                    />
-                    */}
-                  </div>
-                  <p id="text03">About</p>
-                  <hr id="divider04" />
-                  <p id="text09">These are for you .. </p>
-                </div>
-              </div>
-              <hr id="divider05" />
+              <HomeSectionUl>
+                <li>
+                  {" "}
+                  <Link to="/articles"> Back </Link>{" "}
+                </li>
+              </HomeSectionUl>
+              <TitleText> {title} </TitleText>
+              <LineDivider />
 
-              <AboutPara>
-                This site is designed to provide tutorials and other helper
-                documents to enrich your knowledge in web development
-              </AboutPara>
+              <Content
+                dangerouslySetInnerHTML={{
+                  __html: contentfulArticle.body.childMarkdownRemark.html,
+                }}
+              />
+              <LineDivider />
+              <InnerImageWrapper>
+                {/* {supportImage && <Img sizes={supportImage.sizes} />} */}
+              </InnerImageWrapper>
             </HomeSection>
+
             <Footer>
+              <hr id="divider05" />
               <FooterContainer>
                 <FooterInner>
                   <ul>
@@ -292,4 +412,36 @@ const About = () => {
     </MainWrapper>
   )
 }
-export default About
+
+export const pageQuery = graphql`
+  query($slug: String!) {
+    contentfulArticle(slug: { eq: $slug }) {
+      title
+      publishedDate(formatString: "DD - MMMM - YYYY")
+      body {
+        childMarkdownRemark {
+          html
+          excerpt
+        }
+      }
+      slug
+      id
+    }
+  }
+`
+
+/* 
+ supportImage {
+        id
+        sizes {
+          base64
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+*/

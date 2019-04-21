@@ -39,3 +39,35 @@ exports.createPages = ({ actions, graphql }) => {
     })
   })
 }
+
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
+
+  const articleTemplate = path.resolve(`src/templates/articleTemplate.js`)
+
+  return graphql(`
+    {
+      allContentfulArticle {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors)
+    }
+
+    result.data.allContentfulArticle.edges.forEach(({ node }) => {
+      createPage({
+        path: node.slug,
+        component: articleTemplate,
+        context: {
+          slug: node.slug,
+        },
+      })
+    })
+  })
+}

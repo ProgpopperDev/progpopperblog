@@ -68,7 +68,7 @@ const OddColumnInnerImage = styled.div`
 `
 
 const OddColumnImageText = styled.div`
-  width: calc(50% + 1.25rem);
+  width: 100%;
   flex-grow: 0;
   max-width: 100%;
   padding: 0 0 0 2.5rem;
@@ -162,7 +162,7 @@ const ImageWrapDiv = styled.a`
   }
 `
 
-const PostListing = ({ post }) => (
+const ArticleListing = ({ post }) => (
   <div>
     <Column>
       <OddColumnInner>
@@ -175,17 +175,10 @@ const PostListing = ({ post }) => (
             </li>
           </OddColumnInnerUl>
         </OddColumnImageText>
-
-        <OddColumnInnerImage>
-          <Img
-            sizes={post.titleImage ? post.titleImage.sizes : null}
-            className="blog-post-image-container"
-          />
-        </OddColumnInnerImage>
       </OddColumnInner>
     </Column>
     <PostDivider />
   </div>
 )
 
-export default PostListing
+export default ArticleListing

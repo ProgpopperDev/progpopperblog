@@ -58,9 +58,13 @@ const MainNav = styled.nav`
         text-decoration: none;
         color: #fff;
         font-family: Poppins;
+        cursor: pointer;
         padding: 0.6em 1.2em 0.6em 1.2em;
         &:hover {
-          border-bottom: 3px solid #524763;
+          border-bottom: 3px solid #d0a5a5;
+        }
+        @media (max-width: 736px) {
+          line-height: 3rem;
         }
       }
     }
@@ -110,8 +114,9 @@ class Header extends Component {
             left: 0,
             top: 0,
             width: "100%",
-            height: "100%",
+            height: "100vh",
             opacity: 0.3,
+            backgroundPosition: "50% 50%",
           }}
           fixed={background.childImageSharp.fixed}
         />
