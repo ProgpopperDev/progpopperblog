@@ -11,8 +11,8 @@ const path = require("path")
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.js`)
-
+  const blogPostTemplate = path.resolve(`./src/templates/blogTemplate.js`)
+  const articleTemplate = path.resolve(`./src/templates/articleTemplate.js`)
   return graphql(`
     {
       allContentfulBlog {
@@ -22,31 +22,6 @@ exports.createPages = ({ actions, graphql }) => {
           }
         }
       }
-    }
-  `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
-
-    result.data.allContentfulBlog.edges.forEach(({ node }) => {
-      createPage({
-        path: node.slug,
-        component: blogPostTemplate,
-        context: {
-          slug: node.slug,
-        },
-      })
-    })
-  })
-}
-
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
-
-  const articleTemplate = path.resolve(`src/templates/articleTemplate.js`)
-
-  return graphql(`
-    {
       allContentfulArticle {
         edges {
           node {
@@ -60,7 +35,17 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    result.data.allContentfulArticle.edges.forEach(({ node }) => {
+    result.data.allContentfulBlog.edges.map(({ node }) => {
+      createPage({
+        path: node.slug,
+        component: blogPostTemplate,
+        context: {
+          slug: node.slug,
+        },
+      })
+    })
+
+    result.data.allContentfulArticle.edges.map(({ node }) => {
       createPage({
         path: node.slug,
         component: articleTemplate,
